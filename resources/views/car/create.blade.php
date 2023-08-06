@@ -142,7 +142,7 @@
                                 <select class="form-control custom-select text-center" name="container_id">
                                     <option value="">{{__('Select Container')}}</option>
                                   @foreach($containers as $container)
-                                      <option value="{{$container->id}}">{{$container->container_name}}-{{$container->container_number}}</option>
+                                      <option value="{{$container->id}}">{{$container->id}} - {{$container->container_name}} - {{$container->container_number}}</option>
                                  @endforeach
                                 </select>
                             </div>

@@ -150,7 +150,7 @@
                                     @foreach($containers as $container)
                                         <option value="{{$container->id}}"
                                         @if($container->id === $record->container_id)  selected @endif
-                                        >{{$container->container_name}}-{{$container->container_number}}</option>
+                                        >{{$container->id}} - {{$container->container_name}} - {{$container->container_number}}</option>
                                     @endforeach
                                 </select>
                             </div>
