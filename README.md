@@ -1,6 +1,6 @@
 
-## Osara Restaurants App
+## Cars Repair App
 
-Web App to manage restaurants for Osara company
+Web App to manage cars repair in shop
 
 
