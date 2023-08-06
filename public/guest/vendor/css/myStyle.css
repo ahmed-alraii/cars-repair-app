@@ -1,0 +1,21 @@
+.navbar .menu_nav .nav-item:hover .nav-link, .navbar .menu_nav .nav-item.active .nav-link {
+    color: #52c5fd;
+    /*color: #f3c300;*/
+    font-size: medium;
+}
+
+.text-yellow{
+    color: #be9a03;
+}
+.font-size-15{
+    font-size: 15px;
+}
+.font-bold{
+    font-weight: bold;
+}
+.pointer{
+ cursor: pointer;
+}
+.text-purple{
+    color: #7a00ff;
+}
