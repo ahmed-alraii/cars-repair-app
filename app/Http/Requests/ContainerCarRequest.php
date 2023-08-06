@@ -24,7 +24,7 @@ class ContainerCarRequest extends FormRequest
         return [
             'container_name' => 'required|min:3',
             'container_number' => 'required',
-            'bill_number' => 'required',
+            'bill_number' => 'required|unique:containers,bill_number,' . $this->id,
             'arrival_date' => 'required',
             'container_notes' => 'required',
 
@@ -33,7 +33,7 @@ class ContainerCarRequest extends FormRequest
             'color' => 'required',
             'quality_number' => 'required',
             'brand' => 'required',
-            'vin' => 'required',
+            'vin' => 'required|unique:cars,vin,' . $this->id,
             'car_notes' => 'required',
         ];
     }
