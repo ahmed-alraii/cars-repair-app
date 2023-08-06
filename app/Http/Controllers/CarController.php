@@ -23,6 +23,7 @@ class CarController extends Controller
                 ->where('id' ,  $data['search'] )
                 ->orWhere('name' , 'like' , '%'  . $data['search'] . '%' )
                 ->orWhere('model' , 'like' , '%'  . $data['search'] . '%' )
+                ->orWhere('brand' , 'like' , '%'  . $data['search'] . '%' )
                 ->paginate(5);
         }
 
