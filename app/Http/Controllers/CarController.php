@@ -15,13 +15,23 @@ class CarController extends Controller
     {
 
         $records = Car::orderBy('created_at')->paginate(5);
+        $data = request()->only(['search' , 'searchById']);
+
         if(request()->has('search')){
-            $data = request()->only('search');
+
             $records = Car::orderBy('created_at')
-                ->where('name' , 'like' , '%'  . $data['search'] . '%' )
+                ->where('id' ,  $data['search'] )
+                ->orWhere('name' , 'like' , '%'  . $data['search'] . '%' )
                 ->orWhere('model' , 'like' , '%'  . $data['search'] . '%' )
                 ->paginate(5);
         }
+
+        if( request()->has('searchById')){
+            $records = Car::orderBy('created_at')
+                ->where('id' ,  $data['searchById'] )
+                ->paginate(5);
+        }
+
 
         $num = ($records->currentPage() - 1) * $records->perPage() + 1;
         return view('car.index')->with(['records' => $records , 'num' => $num]);

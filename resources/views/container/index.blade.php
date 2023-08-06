@@ -10,26 +10,42 @@
                class="mdc-button mdc-button--raised mb-2 "> {{ __('Add') }}</a>
         @endif
 
-        <div class="row">
-            <form
-                id="search-form" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
-                method="get">
+        <div class="row  justify-content-center">
 
-                <div class="form-group row justify-content-center mb-3">
-                    <div class="col-md-6">
+            <div class="col-md-6">
+                <div class="form-group  mb-3">
+
+                    <form
+                            id="search-form-text" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
+                            method="get">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="search-text" name="search">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
-                                       class="mdc-floating-label">{{__('Search By Name Or Number')}}</label>
+                                       class="mdc-floating-label">{{__('Search By Name Or Bill Number')}}</label>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+            </div>
 
-            </form>
+            <div class="col-md-3">
+                <form
+                        id="search-form-number" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
+                        method="get">
 
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                        <div class="mdc-text-field">
+                            <input class="mdc-text-field__input" id="search-number" name="searchById">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-hero-input"
+                                   class="mdc-floating-label">{{__('Search By Number')}}</label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
 
         <div class="row">
@@ -39,7 +55,8 @@
                 <table id="table" class="table">
                     <thead>
                     <tr>
-                        <th> {{ __('#') }} </th>
+
+                        <th> {{ __('Id') }} </th>
                         <th> {{ __('Container Name') }} </th>
                         <th> {{ __('Container Number') }} </th>
                         <th> {{ __('Bill Number') }} </th>
@@ -54,7 +71,7 @@
                     @foreach ($records as $record)
 
                         <tr>
-                            <td>{{ $num++ }}</td>
+                            <td>{{$record->id}}</td>
                             <td>{{ $record->container_name }}</td>
                             <td>{{ $record->container_number }}</td>
                             <td>{{ $record->bill_number }}</td>
@@ -109,10 +126,14 @@
 <script src="{{ asset('admin/vendor/js/jquery.js') }}"></script>
 <script>
     $(document).ready(function () {
-        let form = $('#search-form');
+        let formText = $('#search-form-text');
+        let formNumber = $('#search-form-number');
 
         $('#search-text').on('blur', function () {
-            form.submit();
+            formText.submit();
+        });
+        $('#search-number').on('blur', function () {
+            formNumber.submit();
         });
     });
 </script>

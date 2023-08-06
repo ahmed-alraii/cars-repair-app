@@ -11,110 +11,131 @@
         @endif
 
 
-        <div class="row">
-            <form
-                id="search-form" action="{{ route('_cars.index', ['language' => app()->getLocale()]) }}"
-                method="get">
+        <div class="row  justify-content-center">
 
-                <div class="form-group row justify-content-center mb-3">
-                    <div class="col-md-6">
+            <div class="col-md-6">
+            <div class="form-group  mb-3">
+
+                    <form
+                          id="search-form-text" action="{{ route('_cars.index', ['language' => app()->getLocale()]) }}"
+                          method="get">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="search-text" name="search">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
-                                       class="mdc-floating-label">{{__('Search By Name Or Model')}}</label>
+                                       class="mdc-floating-label">{{__('Search By Name Or Model Or Brand')}}</label>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+            </div>
 
-            </form>
+            <div class="col-md-3">
+                <form
+                      id="search-form-number" action="{{ route('_cars.index', ['language' => app()->getLocale()]) }}"
+                      method="get">
 
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                        <div class="mdc-text-field">
+                            <input class="mdc-text-field__input" id="search-number" name="searchById">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-hero-input"
+                                   class="mdc-floating-label">{{__('Search By Number')}}</label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
+    </div>
 
-        <div class="row">
+    <div class="row">
 
-            <br>
-            <div class="table-responsive bg-light ">
-                <table id="table" class="table">
-                    <thead>
+        <br>
+        <div class="table-responsive bg-light ">
+            <table id="table" class="table">
+                <thead>
+                <tr>
+                    <th> {{ __('Id') }} </th>
+                    <th> {{ __('Name') }} </th>
+                    <th> {{ __('Model') }} </th>
+                    <th> {{ __('Color') }} </th>
+                    <th> {{ __('Quality Number') }} </th>
+                    <th> {{ __('Vin') }} </th>
+                    <th> {{ __('Notes') }} </th>
+                    <th>{{ __('Action') }} </th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                @foreach ($records as $record)
+
                     <tr>
-                        <th> {{ __('#') }} </th>
-                        <th> {{ __('Name') }} </th>
-                        <th> {{ __('Model') }} </th>
-                        <th> {{ __('Color') }} </th>
-                        <th> {{ __('Quality Number') }} </th>
-                        <th> {{ __('Vin') }} </th>
-                        <th> {{ __('Notes') }} </th>
-                        <th>{{ __('Action') }} </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-
-                    @foreach ($records as $record)
-
-                        <tr>
-                            <td>{{ $num++ }}</td>
-                            <td>{{ $record->name }}</td>
-                            <td>{{ $record->model }}</td>
-                            <td>{{ $record->color }}</td>
-                            <td>{{ $record->quality_number }}</td>
-                            <td>{{ $record->vin }}</td>
-                            <td>{{ $record->notes }}</td>
-                            <td>
-                                <form
+                        <td>{{ $record->id  }}</td>
+                        <td>{{ $record->name }}</td>
+                        <td>{{ $record->model }}</td>
+                        <td>{{ $record->color }}</td>
+                        <td>{{ $record->quality_number }}</td>
+                        <td>{{ $record->vin }}</td>
+                        <td>{{ $record->notes }}</td>
+                        <td>
+                            <form
                                     action="{{ route('_cars.destroy', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
                                     method="post">
-                                    <input type="hidden" name="id" value="{{ $record->id }}">
+                                <input type="hidden" name="id" value="{{ $record->id }}">
 
-                                    <a href="{{ route('_cars.show', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
-                                       class="btn btn-primary"> {{ __('Show') }} </a>
-                                    @if(Auth::user()->role->name === 'Admin' )
-                                        <a href="{{ route('_cars.edit', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
-                                           class="btn btn-secondary"> {{ __('Edit') }} </a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                                onclick=" event.preventDefault(); confirmDelete(
+                                <a href="{{ route('_cars.show', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
+                                   class="btn btn-primary"> {{ __('Show') }} </a>
+                                @if(Auth::user()->role->name === 'Admin' )
+                                    <a href="{{ route('_cars.edit', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
+                                       class="btn btn-secondary"> {{ __('Edit') }} </a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            onclick=" event.preventDefault(); confirmDelete(
                                                '{{ __('Confirm Delete') }} ',
                                                 '{{ __('Are You Sure?') }} ',
                                                 '{{ __('Yes') }}' ,
                                                 '{{ __('Cancel') }}' ,
                                                   this ); "
-                                                class=" btn btn-danger">
-                                            {{ __('Delete') }} </button>
-                                    @endif
-                                </form>
-                            </td>
+                                            class=" btn btn-danger">
+                                        {{ __('Delete') }} </button>
+                                @endif
+                            </form>
+                        </td>
 
-                        </tr>
+                    </tr>
 
-                    @endforeach
-                    </tbody>
-                </table>
-                @if (count($records) === 0)
-                    <div class="text-center">
-                        <h4> {{ __('No Data') }} </h4>
-                    </div>
-                @endif
-            </div>
+                @endforeach
+                </tbody>
+            </table>
+            @if (count($records) === 0)
+                <div class="text-center">
+                    <h4> {{ __('No Data') }} </h4>
+                </div>
+            @endif
         </div>
+    </div>
 
-        <div class="row justify-content-center mt-2">
+    <div class="row justify-content-center mt-2">
 
-            {{ $records->links() }}
-        </div>
+        {{ $records->links() }}
+    </div>
     </div>
 @endsection
 <script src="{{ asset('admin/vendor/js/jquery.js') }}"></script>
 <script>
     $(document).ready(function () {
-        let form = $('#search-form');
+        let formText = $('#search-form-text');
+        let formNumber = $('#search-form-number');
 
         $('#search-text').on('blur', function () {
-            form.submit();
+            formText.submit();
+        });
+        $('#search-number').on('blur', function () {
+            formNumber.submit();
         });
     });
 </script>

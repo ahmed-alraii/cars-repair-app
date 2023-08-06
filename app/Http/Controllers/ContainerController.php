@@ -16,11 +16,19 @@ class ContainerController extends Controller
     {
 
         $records = Container::orderBy('created_at')->paginate(5);
+
+        $data = request()->only(['search' , 'searchById']);
+
         if(request()->has('search')){
-            $data = request()->only('search');
             $records = Container::orderBy('created_at')
                 ->where('container_name' , 'like' , '%'  . $data['search'] . '%' )
                 ->orWhere('container_number' , 'like' , '%'  . $data['search'] . '%' )
+                ->paginate(5);
+        }
+
+        if( request()->has('searchById')){
+            $records = Container::orderBy('created_at')
+                ->where('id' ,  $data['searchById'] )
                 ->paginate(5);
         }
 
