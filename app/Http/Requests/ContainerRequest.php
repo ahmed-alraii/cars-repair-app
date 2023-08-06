@@ -24,7 +24,7 @@ class ContainerRequest extends FormRequest
         return [
             'container_name' => 'required|min:3',
             'container_number' => 'required',
-            'bill_number' => 'required|unique:containers,bill_number,' . $this->id,
+            'bill_number' => 'required',
             'arrival_date' => 'required',
             'notes' => 'required',
         ];
