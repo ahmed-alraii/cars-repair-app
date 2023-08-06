@@ -27,7 +27,7 @@ class CarRequest extends FormRequest
             'color' => 'required',
             'quality_number' => 'required',
             'brand' => 'required',
-            'vin' => 'required',
+            'vin' => 'required|unique:cars,vin,' . $this->id,
             'notes' => 'required',
             'container_id' => ''
         ];
