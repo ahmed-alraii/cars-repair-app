@@ -3,7 +3,9 @@
 @section('content')
 
     <div class="container">
-        <a class="btn btn-success mt-5" href="{{ route('users.index'  , app()->getLocale()) }}">{{ __('Back') }}</a>
+        <a href="{{ route('users.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
+            {{ __('Back') }}
+        </a>
     </div>
 
     <div class="container">
@@ -26,7 +28,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ $record->name }}" required autocomplete="name" autofocus>
+                                           value="{{ $record->name }}"  autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +45,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ $record->email }}" required autocomplete="email">
+                                           value="{{ $record->email }}"  autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -76,7 +78,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
-                                           value="{{ $record->password }}" required autocomplete="new-password">
+                                           value="{{ $record->password }}"  autocomplete="new-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -92,8 +94,14 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                           value="{{ $record->password }}" name="password_confirmation" required
+                                           value="{{ $record->password }}" name="password_confirmation"
                                            autocomplete="new-password">
+
+                                    @error('password_confirmation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 

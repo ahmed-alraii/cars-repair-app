@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BillType extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name_ar' , 'name_en'];
 }

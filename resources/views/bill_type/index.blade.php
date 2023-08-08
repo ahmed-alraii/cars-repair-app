@@ -1,14 +1,14 @@
 @extends('layouts.admin')
-@section('title' , __('Users'))
+@section('title' , __('Bill Types'))
 @section('content')
 
     <div class="container mt-0">
         <div class="row">
 
-            <h2 class="text-center">{{ __('Users') }} </h2>
+            <h2 class="text-center">{{ __('Bill Types') }} </h2>
             @if(Auth::user()->role->name === 'Admin' )
                 <div class="mb-3">
-                    <a href="{{route('users.create' , app()->getLocale())}}"
+                    <a href="{{route('bill_types.create' , app()->getLocale())}}"
                        class="mdc-button mdc-button--raised mb-2 "> {{ __('Add') }}</a>
                 </div>
             @endif
@@ -22,8 +22,8 @@
                 <table id="tableCustomer" class="table mt-3">
                     <thead>
                     <tr class="text-center">
-                        <th class="text-center"> {{ __('Name') }} </th>
-                        <th class="text-center"> {{ __('Type') }} </th>
+                        <th class="text-center"> {{ __('Arabic Name') }} </th>
+                        <th class="text-center"> {{ __('English Name') }} </th>
                         <th class="text-center">{{ __('Action') }} </th>
                     </tr>
                     </thead>
@@ -31,20 +31,21 @@
 
 
                     @foreach ($records as $record)
-
+                        <form
+                            action="{{ route('bill_types.destroy' , ['language' =>  app()->getLocale() , 'bill_type' => $record->id] ) }}"
+                            method="post">
                             <input type="hidden" name="id" value="{{ $record->id }}">
                             <tr class="text-center">
-                                <td class="text-center">{{ $record->name }}</td>
-                                <td class="text-center">{{ $record->role->name }}</td>
+                                <td class="text-center">{{ $record->name_ar }}</td>
+                                <td class="text-center">{{ $record->name_en }}</td>
                                 <td class="text-center">
-
                                     <form
-                                            action="{{ route('users.destroy', ['language' => app()->getLocale(), 'user' => $record->id]) }}"
+                                            action="{{ route('bill_types.destroy', ['language' => app()->getLocale(), 'bill_type' => $record->id]) }}"
                                             method="post">
                                         <input type="hidden" name="id" value="{{ $record->id }}">
 
                                         @if(Auth::user()->role->name === 'Admin' )
-                                            <a href="{{ route('users.edit', ['language' => app()->getLocale(), 'user' => $record->id ]) }}"
+                                            <a href="{{ route('bill_types.edit', ['language' => app()->getLocale(), 'bill_type' => $record->id ]) }}"
                                                class="btn btn-secondary"> {{ __('Edit') }} </a>
                                             @csrf
                                             @method('DELETE')
@@ -57,10 +58,12 @@
                                                   this ); "
                                                     class=" btn btn-danger">
                                                 {{ __('Delete') }} </button>
-                                    @endif
+                                        @endif
+                                    </form>
 
                                 </td>
                             </tr>
+                        </form>
                     @endforeach
                     </tbody>
                 </table>

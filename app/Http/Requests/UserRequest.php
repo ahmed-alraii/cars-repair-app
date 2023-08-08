@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
                'name' => 'required|min:3',
                'email' => 'required|email|unique:users,email,' .$this->id ,
                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation,' . $this->id,
-               'password_confirmation' => 'min:6,' . $this->id,
+               'password_confirmation' => 'required|min:6,' . $this->id,
                'role_id' => 'required',
                'phone' => 'min:8|max:12'
 

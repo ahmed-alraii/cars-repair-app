@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\DashboardController;
@@ -20,7 +22,8 @@ Route::group(['prefix' => '{language}'], function () {
     Route::resource('/users', UserController::class)->middleware('auth');
     Route::resource('/_cars', CarController::class)->middleware('auth');
     Route::resource('/containers', ContainerController::class)->middleware('auth');
-    Route::resource('/bills', ContainerController::class)->middleware('auth');
+    Route::resource('/bills', BillController::class)->middleware('auth');
+    Route::resource('/bill_types', BillTypeController::class)->middleware('auth');
 
     Route::post('/mark_all_read', [OrderController::class, 'markAllAsRead'])->name('mark_all_read')->middleware(['auth']);
     Route::get('/order_report', [ReportController::class, 'orderReport'])->name('order_report')->middleware(['auth']);

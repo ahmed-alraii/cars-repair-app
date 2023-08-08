@@ -1,14 +1,19 @@
 @extends('layouts.admin')
-@section('title' , __('Shop Cars'))
+@section('title' , __('Bills'))
 @section('content')
 
     <div class="container mt-0">
 
-        <h2 class="text-center">{{ __('Shop Cars') }} </h2>
+        <h2 class="text-center">{{ __('Bills') }} </h2>
         @if(Auth::user()->role->name === 'Admin' )
-            <a href="{{route('_cars.create' , app()->getLocale())}}"
+            <a href="{{route('bills.create' , [app()->getLocale() , 'car_id' => request()->query('car_id')])}}"
                class="mdc-button mdc-button--raised mb-2 "> {{ __('Add') }}</a>
         @endif
+
+        <a href="{{ route('_cars.index' , [app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
+           class="mdc-button mdc-button--success text-white btn-sm mb-2 ">
+            {{ __('Back') }}
+        </a>
 
 
         <div class="row  justify-content-center">
@@ -17,8 +22,9 @@
             <div class="form-group  mb-3">
 
                     <form
-                          id="search-form-text" action="{{ route('_cars.index', ['language' => app()->getLocale()]) }}"
+                          id="search-form-text" action="{{ route('bills.index', ['language' => app()->getLocale() ,  'car_id' => request()->query('car_id') ]) }}"
                           method="get">
+                        <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="search-text" name="search">
@@ -33,9 +39,10 @@
 
             <div class="col-md-3">
                 <form
-                      id="search-form-number" action="{{ route('_cars.index', ['language' => app()->getLocale()]) }}"
+                      id="search-form-number" action="{{ route('bills.index', ['language' => app()->getLocale() ] ) }}"
                       method="get">
 
+                    <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                         <div class="mdc-text-field">
                             <input class="mdc-text-field__input" id="search-number" name="searchById">
@@ -58,11 +65,10 @@
                 <thead>
                 <tr>
                     <th> {{ __('Id') }} </th>
-                    <th> {{ __('Name') }} </th>
-                    <th> {{ __('Model') }} </th>
-                    <th> {{ __('Color') }} </th>
-                    <th> {{ __('Quality Number') }} </th>
-                    <th> {{ __('Vin') }} </th>
+                    <th> {{ __('Bill Type') }} </th>
+                    <th> {{ __('Price') }} </th>
+                    <th> {{ __('Company Name') }} </th>
+                    <th> {{ __('Company Phone') }} </th>
                     <th> {{ __('Notes') }} </th>
                     <th>{{ __('Action') }} </th>
                 </tr>
@@ -74,26 +80,21 @@
 
                     <tr>
                         <td>{{ $record->id  }}</td>
-                        <td>{{ $record->name }}</td>
-                        <td>{{ $record->model }}</td>
-                        <td>{{ $record->color }}</td>
-                        <td>{{ $record->quality_number }}</td>
-                        <td>{{ $record->vin }}</td>
+                        <td>{{ app()->getLocale() === 'ar' ? $record->billType->name_ar :  $record->billType->name_en}}</td>
+                        <td>{{ $record->price }}</td>
+                        <td>{{ $record->company_name }}</td>
+                        <td>{{ $record->company_phone }}</td>
                         <td>{{ $record->notes }}</td>
                         <td>
                             <form
-                                    action="{{ route('_cars.destroy', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
+                                    action="{{ route('bills.destroy', ['language' => app()->getLocale(), 'bill' => $record->id]) }}"
                                     method="post">
                                 <input type="hidden" name="id" value="{{ $record->id }}">
 
-                                <a href="{{ route('_cars.show', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
+                                <a href="{{ route('bills.show', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => request()->query('car_id')]) }}"
                                    class="btn btn-primary"> {{ __('Show') }} </a>
                                 @if(Auth::user()->role->name === 'Admin' )
-
-                                    <a href="{{ route('bills.index', ['language' => app()->getLocale(), 'car_id' => $record->id]) }}"
-                                       class="btn btn-success"> {{ __('Bills') }} </a>
-
-                                    <a href="{{ route('_cars.edit', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
+                                    <a href="{{ route('bills.edit', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => request()->query('car_id')]) }}"
                                        class="btn btn-secondary"> {{ __('Edit') }} </a>
                                     @csrf
                                     @method('DELETE')

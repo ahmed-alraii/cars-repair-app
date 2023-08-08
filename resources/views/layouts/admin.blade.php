@@ -110,23 +110,24 @@
                     </div>
 
 
+                    @if(Auth::user()->role->name === 'Admin')
+
+{{--                        <div class="mdc-list-item mdc-drawer-item">--}}
+{{--                            <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">--}}
+{{--                                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
+{{--                                   aria-hidden="true">add</i>--}}
+{{--                                @if(app()->getLocale() === 'ar')--}}
+{{--                                    <h5 class="mt-3 mr-2"> {{__('Bills')}}  </h5>--}}
+{{--                                @else--}}
+{{--                                    <h6 class="mt-3 mr-2"> {{__('Bills')}}  </h6>--}}
+{{--                                @endif--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+
+                    @endif
+
+
                     @if(Auth::user()->role->name === 'Admin' || Auth::user()->role->name === 'Supervisor')
-
-
-
-                        <div class="mdc-list-item mdc-drawer-item">
-                            <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">
-                                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
-                                   aria-hidden="true">add</i>
-                                @if(app()->getLocale() === 'ar')
-                                    <h5 class="mt-3 mr-2"> {{__('Bills')}}  </h5>
-                                @else
-                                    <h6 class="mt-3 mr-2"> {{__('Bills')}}  </h6>
-                                @endif
-                            </a>
-                        </div>
-
-
 
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
@@ -184,6 +185,17 @@
                                                 <h5 class="mt-3 mr-2"> {{__('Users')}}  </h5>
                                             @else
                                                 <h6 class="mt-3 mr-2"> {{__('Users')}}  </h6>
+                                            @endif
+                                        </a>
+                                    </div>
+
+                                    <div class="mdc-list-item mdc-drawer-item">
+                                        <a class="mdc-drawer-link"
+                                           href="{{route('bill_types.index' , app()->getLocale())}}">
+                                            @if(app()->getLocale() === 'ar')
+                                                <h5 class="mt-3 mr-2"> {{__('Bill Types')}}  </h5>
+                                            @else
+                                                <h6 class="mt-3 mr-2"> {{__('Bill Types')}}  </h6>
                                             @endif
                                         </a>
                                     </div>
@@ -423,7 +435,7 @@
                                     @if (Session::has('message'))
                                         <p class="alert text-center {{ Session::get('alert-class', 'alert-info') }}">
                                             @foreach(explode(' ' ,Session::get('message')) as $message)
-                                                {{ __($message) }}
+                                                {{  __(str_replace('-' , ' ' ,  $message) )}}
                                             @endforeach
                                         </p>
                                     @endif
