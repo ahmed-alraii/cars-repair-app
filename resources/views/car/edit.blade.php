@@ -8,7 +8,8 @@
 
 
         <div class="row col-1">
-            <a href="{{ route('_cars.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-5">
+            <a href="{{ route('_cars.index' , app()->getLocale()) }}"
+               class="mdc-button mdc-button--success text-white btn-sm mb-5">
                 {{ __('Back') }}
             </a>
         </div>
@@ -60,7 +61,7 @@
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
-                                <input  class="mdc-text-field__input" id="text-field-hero-input" name="quality_number"
+                                <input class="mdc-text-field__input" id="text-field-hero-input" name="quality_number"
                                        value="{{$record->quality_number}}">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
@@ -95,7 +96,8 @@
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
-                                <input type="number" class="mdc-text-field__input" id="text-field-hero-input" name="model"
+                                <input type="number" class="mdc-text-field__input" id="text-field-hero-input"
+                                       name="model"
                                        value="{{$record->model}}">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
@@ -149,8 +151,9 @@
                                     <option value="">{{__('Select Container')}}</option>
                                     @foreach($containers as $container)
                                         <option value="{{$container->id}}"
-                                        @if($container->id === $record->container_id)  selected @endif
-                                        >{{$container->id}} - {{$container->container_name}} - {{$container->container_number}}</option>
+                                                @if($container->id === $record->container_id)  selected @endif
+                                        >{{$container->id}} - {{$container->container_name}}
+                                            - {{$container->container_number}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -164,11 +167,13 @@
                 </div>
 
 
-            <div class="form-group text-center mt-3">
-                <input type="submit" value="{{ __('Edit') }} " class="mdc-button mdc-button--raised ">
+                <div class="form-group text-center mt-3">
+                    <input type="submit" value="{{ __('Edit') }} " class="mdc-button mdc-button--raised ">
+                </div>
+
+
             </div>
         </form>
     </div>
-
 
 @endsection

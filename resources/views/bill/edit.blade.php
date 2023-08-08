@@ -8,7 +8,8 @@
 
 
         <div class="row col-1">
-            <a href="{{ route('bills.index' , [app()->getLocale() , 'car_id' => request()->query('car_id') ] ) }}" class="mdc-button mdc-button--success text-white btn-sm mb-5">
+            <a href="{{ route('bills.index' , [app()->getLocale() , 'car_id' => request()->query('car_id') ] ) }}"
+               class="mdc-button mdc-button--success text-white btn-sm mb-5">
                 {{ __('Back') }}
             </a>
         </div>
@@ -35,7 +36,8 @@
                                 <input class="mdc-text-field__input" id="text-field-hero-input" name="company_name"
                                        value="{{$record->company_name}}">
                                 <div class="mdc-line-ripple"></div>
-                                <label for="text-field-hero-input" class="mdc-floating-label">{{__('Company Name')}}</label>
+                                <label for="text-field-hero-input"
+                                       class="mdc-floating-label">{{__('Company Name')}}</label>
                             </div>
                         </div>
 
@@ -64,7 +66,7 @@
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="text-field-hero-input" name="price"
-                                     step="0.001"  value="{{$record->price}}">
+                                       step="0.001" value="{{$record->price}}">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
                                        class="mdc-floating-label">{{__('Price')}}</label>
@@ -86,7 +88,7 @@
                                     <option value="">{{__('Select')}} {{__('Bill Type')}}</option>
                                     @foreach($billTypes as $billType)
                                         <option value="{{$billType->id}}"
-                                        @if($billType->id === $record->bill_type_id)  selected @endif
+                                                @if($billType->id === $record->bill_type_id)  selected @endif
                                         >{{ app()->getLocale() === 'ar' ?  $billType->name_ar : $billType->name_en}} </option>
                                     @endforeach
                                 </select>
@@ -116,11 +118,12 @@
                 </div>
 
 
-            <div class="form-group text-center mt-3">
-                <input type="submit" value="{{ __('Edit') }} " class="mdc-button mdc-button--raised ">
+                <div class="form-group text-center mt-3">
+                    <input type="submit" value="{{ __('Edit') }} " class="mdc-button mdc-button--raised ">
+                </div>
+
             </div>
         </form>
     </div>
-
 
 @endsection
