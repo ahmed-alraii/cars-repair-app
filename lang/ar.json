@@ -195,10 +195,13 @@
   "Quality Number": "رمز الجودة",
   "Brand": "الوكالة",
   "Vin": "رقم الشاصي",
+  "Code": "الكود",
   "Car": "سيارة",
   "Search By Name Or Model Or Brand": "بحث بالاسم او الموديل او الوكاله",
   "Search By Name Or Bill Number": "بحث بالاسم او رقم الفاتورة",
+  "Search By Company Name Or Company Phone": "بحث باسم الشركه او هاتف الشركة",
   "Search By Number": "بحث بالرقم",
+  "Search By Code": "بحث بالكود",
   "Shop Cars": "سيارات المحل",
   "Clients Cars": "سيارات الزبائن",
   "Company Name": "اسم الشركة",
@@ -207,5 +210,6 @@
   "Bill Details": "تفاصيل الفاتورة",
   "Bill Types": "انواع الفواتير",
   "Arabic Name": "الاسم العربي",
-  "English Name": "الاسم الانجليزي"
+  "English Name": "الاسم الانجليزي",
+  "Car Code": "كود السيارة"
 }

@@ -49,6 +49,7 @@
                         <th>{{__('Quality Number')}}</th>
                         <th>{{__('Brand')}}</th>
                         <th>{{__('Vin')}}</th>
+                        <th>{{__('Code')}}</th>
                         <th>{{__('Notes')}}</th>
                         <th>{{__('Created At')}}</th>
 
@@ -62,6 +63,7 @@
                             <td class="text-center">  {{$car->quality_number}} </td>
                             <td class="text-center">  {{$car->brand}} </td>
                             <td class="text-center">  {{$car->vin}} </td>
+                            <td class="text-center">  {{$car->code}} </td>
                             <td class="text-center">  {{$car->notes}} </td>
                             <td class="text-center">  {{$car->created_at}} </td>
                         </tr>

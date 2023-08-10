@@ -53,6 +53,7 @@
                         <th>{{__('Quality Number')}}</th>
                         <th>{{__('Brand')}}</th>
                         <th>{{__('Vin')}}</th>
+                        <th>{{__('Code')}}</th>
                         <th>{{__('Notes')}}</th>
                         <th>{{__('Created At')}}</th>
                     </tr>
@@ -64,6 +65,7 @@
                         <td class="text-center">  {{$record->quality_number}} </td>
                         <td class="text-center">  {{$record->brand}} </td>
                         <td class="text-center">  {{$record->vin}} </td>
+                        <td class="text-center">  {{$record->code}} </td>
                         <td class="text-center">  {{$record->notes}} </td>
                         <td class="text-center">  {{$record->created_at}} </td>
                     </tr>

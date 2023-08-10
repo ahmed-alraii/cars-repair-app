@@ -15,21 +15,20 @@ class CarController extends Controller
     {
 
         $records = Car::orderBy('created_at')->paginate(5);
-        $data = request()->only(['search' , 'searchById']);
+        $data = request()->only(['search' , 'searchByCode']);
 
         if(request()->has('search')){
 
             $records = Car::orderBy('created_at')
-                ->where('id' ,  $data['search'] )
                 ->orWhere('name' , 'like' , '%'  . $data['search'] . '%' )
                 ->orWhere('model' , 'like' , '%'  . $data['search'] . '%' )
                 ->orWhere('brand' , 'like' , '%'  . $data['search'] . '%' )
                 ->paginate(5);
         }
 
-        if( request()->has('searchById')){
+        if( request()->has('searchByCode')){
             $records = Car::orderBy('created_at')
-                ->where('id' ,  $data['searchById'] )
+                ->where('code' ,  $data['searchByCode'] )
                 ->paginate(5);
         }
 

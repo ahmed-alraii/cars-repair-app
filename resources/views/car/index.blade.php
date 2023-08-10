@@ -38,10 +38,10 @@
 
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                         <div class="mdc-text-field">
-                            <input class="mdc-text-field__input" id="search-number" name="searchById">
+                            <input class="mdc-text-field__input" id="search-number" name="searchByCode">
                             <div class="mdc-line-ripple"></div>
                             <label for="text-field-hero-input"
-                                   class="mdc-floating-label">{{__('Search By Number')}}</label>
+                                   class="mdc-floating-label">{{__('Search By Code')}}</label>
                         </div>
                     </div>
 
@@ -63,6 +63,7 @@
                     <th> {{ __('Color') }} </th>
                     <th> {{ __('Quality Number') }} </th>
                     <th> {{ __('Vin') }} </th>
+                    <th> {{ __('Code') }} </th>
                     <th> {{ __('Notes') }} </th>
                     <th>{{ __('Action') }} </th>
                 </tr>
@@ -79,6 +80,7 @@
                         <td>{{ $record->color }}</td>
                         <td>{{ $record->quality_number }}</td>
                         <td>{{ $record->vin }}</td>
+                        <td>{{ $record->code }}</td>
                         <td>{{ $record->notes }}</td>
                         <td>
                             <form

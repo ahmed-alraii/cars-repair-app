@@ -18,7 +18,8 @@ class Car extends Model
         'brand' ,
         'vin' ,
         'notes',
-        'container_id'
+        'container_id',
+        'code'
     ];
 
 

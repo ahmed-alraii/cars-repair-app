@@ -29,7 +29,8 @@ class CarRequest extends FormRequest
             'brand' => 'required',
             'vin' => 'required|unique:cars,vin,' . $this->id,
             'notes' => 'required',
-            'container_id' => ''
+            'container_id' => '',
+            'code' => 'required|min:4|max:4'
         ];
     }
 }

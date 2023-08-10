@@ -93,6 +93,24 @@
 
                     </div>
 
+
+                    <div class="col-md-4 ">
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                            <div class="mdc-text-field">
+                                <input class="mdc-text-field__input" id="text-field-hero-input" name="code"
+                                       value="{{$record->code}}">
+                                <div class="mdc-line-ripple"></div>
+                                <label for="text-field-hero-input"
+                                       class="mdc-floating-label">{{__('Car Code')}}</label>
+                            </div>
+                        </div>
+
+                        <div class="text-danger text-center">
+                            @error('code')  {{$message}}   @enderror
+                        </div>
+
+                    </div>
+
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
@@ -106,21 +124,6 @@
                         </div>
                         <div class="text-danger text-center">
                             @error('model')  {{$message}}   @enderror
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 ">
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                            <div class="mdc-text-field">
-                                <input class="mdc-text-field__input" id="text-field-hero-input" name="notes"
-                                       value="{{$record->notes}}">
-                                <div class="mdc-line-ripple"></div>
-                                <label for="text-field-hero-input"
-                                       class="mdc-floating-label">{{__('Notes')}}</label>
-                            </div>
-                        </div>
-                        <div class="text-danger text-center">
-                            @error('notes')  {{$message}}   @enderror
                         </div>
                     </div>
 
@@ -160,6 +163,23 @@
                         </div>
                         <div class="text-danger text-center">
                             @error('container_id')  {{$message}}   @enderror
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4 ">
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                            <div class="mdc-text-field">
+                                <input class="mdc-text-field__input" id="text-field-hero-input" name="notes"
+                                       value="{{$record->notes}}">
+                                <div class="mdc-line-ripple"></div>
+                                <label for="text-field-hero-input"
+                                       class="mdc-floating-label">{{__('Notes')}}</label>
+                            </div>
+                        </div>
+                        <div class="text-danger text-center">
+                            @error('notes')  {{$message}}   @enderror
                         </div>
                     </div>
 

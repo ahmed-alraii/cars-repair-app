@@ -30,7 +30,7 @@
                                 <input class="mdc-text-field__input" id="search-text" name="search">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
-                                       class="mdc-floating-label">{{__('Search By Name Or Model Or Brand')}}</label>
+                                       class="mdc-floating-label">{{__('Search By Company Name Or Company Phone')}}</label>
                             </div>
                         </div>
                     </form>
