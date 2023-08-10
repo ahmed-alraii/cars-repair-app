@@ -25,7 +25,9 @@
                         @if ($page == $paginator->currentPage())
                             <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
                         @else
-                            <li class="page-item"><a class="page-link" href="{{ $url }}&search={{request()->query('search')}}">{{ $page }}</a></li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="{{ $url }}&search={{request()->query('search')}}@if(request()->has('car_id'))&car_id={{request()->query('car_id')}}@endif">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif

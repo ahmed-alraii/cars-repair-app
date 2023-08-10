@@ -38,6 +38,12 @@ class BillController extends Controller
                 ->paginate(5);
         }
 
+        if (request()->has('car_id')) {
+            $records = Bill::where('car_id', $data['car_id'])
+                ->orderBy('created_at')
+                ->paginate(5);
+        }
+
 
         $num = ($records->currentPage() - 1) * $records->perPage() + 1;
         return view('bill.index')->with(['records' => $records, 'num' => $num]);
