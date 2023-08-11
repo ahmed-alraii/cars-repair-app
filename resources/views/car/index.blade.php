@@ -93,7 +93,7 @@
                                 @if(Auth::user()->role->name === 'Admin' )
 
                                     <a href="{{ route('bills.index', ['language' => app()->getLocale(), 'car_id' => $record->id]) }}"
-                                       class="btn btn-success"> {{ __('Bills') }} </a>
+                                       class="btn btn-success"> {{ __('Bills') }} - {{count($record->bills)}} </a>
 
                                     <a href="{{ route('_cars.edit', ['language' => app()->getLocale(), '_car' => $record->id]) }}"
                                        class="btn btn-secondary"> {{ __('Edit') }} </a>

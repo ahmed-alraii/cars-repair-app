@@ -6,25 +6,44 @@
 
         <h2 class="text-center">{{ __('Bills') }} </h2>
         @if(Auth::user()->role->name === 'Admin' )
-            <a href="{{route('bills.create' , [app()->getLocale() , 'car_id' => request()->query('car_id')])}}"
-               class="mdc-button mdc-button--raised mb-2 "> {{ __('Add') }}</a>
+
+            @if(request()->has('car_id'))
+                <a href="{{route('bills.create' , [app()->getLocale() , 'car_id' => request()->query('car_id')])}}"
+                   class="mdc-button mdc-button--raised mb-2 "> {{ __('Add') }}</a>
+
+                <a href="{{ route('_cars.index' , [app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
+                   class="mdc-button mdc-button--success text-white btn-sm mb-2 ">
+                    {{ __('Back') }}
+                </a>
+
+            @endif
+
         @endif
 
-        <a href="{{ route('_cars.index' , [app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
-           class="mdc-button mdc-button--success text-white btn-sm mb-2 ">
-            {{ __('Back') }}
-        </a>
+
 
 
         <div class="row  justify-content-center">
 
             <div class="col-md-6">
-            <div class="form-group  mb-3">
+                <div class="form-group  mb-3">
 
                     <form
-                          id="search-form-text" action="{{ route('bills.index', ['language' => app()->getLocale() ,  'car_id' => request()->query('car_id') ]) }}"
-                          method="get">
-                        <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
+                            id="search-form-text"
+                            @if(request()->has('car_id'))
+                            action="{{ route('bills.index', ['language' => app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
+
+                            @else
+                                action="{{ route('bills.index', ['language' => app()->getLocale()]) }}"
+                            @endif
+
+
+                            method="get">
+
+                        @if(request()->has('car_id'))
+                            <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
+                        @endif
+
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="search-text" name="search">
@@ -39,10 +58,12 @@
 
             <div class="col-md-3">
                 <form
-                      id="search-form-number" action="{{ route('bills.index', ['language' => app()->getLocale() ] ) }}"
-                      method="get">
-
-                    <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
+                        id="search-form-number"
+                        action="{{ route('bills.index', ['language' => app()->getLocale() ] ) }}"
+                        method="get">
+                    @if(request()->has('car_id'))
+                        <input type="hidden" name="car_id" value="{{request()->query('car_id')}}">
+                    @endif
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                         <div class="mdc-text-field">
                             <input class="mdc-text-field__input" id="search-number" name="searchById">

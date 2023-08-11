@@ -112,17 +112,17 @@
 
                     @if(Auth::user()->role->name === 'Admin')
 
-{{--                        <div class="mdc-list-item mdc-drawer-item">--}}
-{{--                            <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">--}}
-{{--                                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
-{{--                                   aria-hidden="true">add</i>--}}
-{{--                                @if(app()->getLocale() === 'ar')--}}
-{{--                                    <h5 class="mt-3 mr-2"> {{__('Bills')}}  </h5>--}}
-{{--                                @else--}}
-{{--                                    <h6 class="mt-3 mr-2"> {{__('Bills')}}  </h6>--}}
-{{--                                @endif--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">
+                                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                                   aria-hidden="true">add</i>
+                                @if(app()->getLocale() === 'ar')
+                                    <h5 class="mt-3 mr-2"> {{__('Bills')}}  </h5>
+                                @else
+                                    <h6 class="mt-3 mr-2"> {{__('Bills')}}  </h6>
+                                @endif
+                            </a>
+                        </div>
 
                     @endif
 

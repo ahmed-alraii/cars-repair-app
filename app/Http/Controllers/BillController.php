@@ -6,7 +6,10 @@ use App\Common\Common;
 use App\Http\Requests\BillRequest;
 use App\Models\Bill;
 use App\Models\BillType;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Spatie\Searchable\Search;
+
 
 class BillController extends Controller
 {
@@ -18,32 +21,36 @@ class BillController extends Controller
 
         $data = request()->only(['search', 'searchById', 'car_id']);
 
-        $records = Bill::where('car_id', $data['car_id'])
-            ->orderBy('created_at')->paginate(5);
+        if (request()->has('car_id')) {
+            $records = Bill::where('car_id', $data['car_id'])
+                ->orderBy('created_at')->get();
+        }else{
+            $records = Bill::orderBy('created_at')->get();
+        }
 
 
         if (request()->has('search')) {
 
-            $records = Bill::orderBy('created_at')
-                ->where('car_id', $data['car_id'])
-                ->orWhere('company_name', 'like', '%' . $data['search'] . '%')
-                ->orWhere('company_phone', 'like', '%' . $data['search'] . '%')
-                ->paginate(5);
+              if($data['search'] == "" || $data['search'] == null) $result = $records;
+
+              else{
+                  $records =  $records->filter(function ($record ) use ($data) {
+                      return str_contains($record->company_name ,$data['search']  ) ||
+                          str_contains($record->company_phone ,$data['search'] );
+                  });
+              }
         }
+
 
         if (request()->has('searchById')) {
-            $records = Bill::where('car_id', $data['car_id'])
-                ->where('id', $data['searchById'])
-                ->orderBy('created_at')
-                ->paginate(5);
+            $records = $records->filter(function ($record) use ($data) {
+                return $record->id == $data['searchById'];
+            });
         }
 
-        if (request()->has('car_id')) {
-            $records = Bill::where('car_id', $data['car_id'])
-                ->orderBy('created_at')
-                ->paginate(5);
-        }
+        $collection = Collection::make($records);
 
+        $records = $this->paginate($collection);
 
         $num = ($records->currentPage() - 1) * $records->perPage() + 1;
         return view('bill.index')->with(['records' => $records, 'num' => $num]);
