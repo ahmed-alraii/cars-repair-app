@@ -146,7 +146,7 @@
                                 <nav class="mdc-list mdc-drawer-submenu">
                                     <div class="mdc-list-item mdc-drawer-item">
                                         <a class="mdc-drawer-link"
-                                           href="{{route('order_report' , app()->getLocale())}}">
+                                           href="{{route('bill_report' , app()->getLocale())}}">
                                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
                                                aria-hidden="true">book</i>
                                             @if(app()->getLocale() === 'ar')

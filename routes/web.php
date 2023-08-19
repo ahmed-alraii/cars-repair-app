@@ -26,8 +26,9 @@ Route::group(['prefix' => '{language}'], function () {
     Route::resource('/bill_types', BillTypeController::class)->middleware('auth');
 
     Route::post('/mark_all_read', [OrderController::class, 'markAllAsRead'])->name('mark_all_read')->middleware(['auth']);
-    Route::get('/order_report', [ReportController::class, 'orderReport'])->name('order_report')->middleware(['auth']);
-    Route::post('/order_report', [ReportController::class, 'generateOrderReport'])->name('generate_order_report')->middleware(['auth']);
+    Route::get('/bill_report', [ReportController::class, 'billReport'])->name('bill_report')->middleware(['auth']);
+    Route::post('/bill_report', [ReportController::class, 'generateBillReport'])->name('generate_bill_report')->middleware(['auth']);
+    Route::get('/bill_export', [ReportController::class, 'billExport'])->name('bill_export')->middleware(['auth']);
 
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
