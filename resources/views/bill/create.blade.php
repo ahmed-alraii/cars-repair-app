@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Add') . ' ' .__('Bill'))
 @section('content')
 

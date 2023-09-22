@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Users'))
 @section('content')
 
@@ -32,35 +32,35 @@
 
                     @foreach ($records as $record)
 
-                            <input type="hidden" name="id" value="{{ $record->id }}">
-                            <tr class="text-center">
-                                <td class="text-center">{{ $record->name }}</td>
-                                <td class="text-center">{{ $record->role->name }}</td>
-                                <td class="text-center">
+                        <input type="hidden" name="id" value="{{ $record->id }}">
+                        <tr class="text-center">
+                            <td class="text-center">{{ $record->name }}</td>
+                            <td class="text-center">{{ $record->role->name }}</td>
+                            <td class="text-center">
 
-                                    <form
-                                            action="{{ route('users.destroy', ['language' => app()->getLocale(), 'user' => $record->id]) }}"
-                                            method="post">
-                                        <input type="hidden" name="id" value="{{ $record->id }}">
+                                <form
+                                        action="{{ route('users.destroy', ['language' => app()->getLocale(), 'user' => $record->id]) }}"
+                                        method="post">
+                                    <input type="hidden" name="id" value="{{ $record->id }}">
 
-                                        @if(Auth::user()->role->name === 'Admin' )
-                                            <a href="{{ route('users.edit', ['language' => app()->getLocale(), 'user' => $record->id ]) }}"
-                                               class="btn btn-secondary"> {{ __('Edit') }} </a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                    onclick=" event.preventDefault(); confirmDelete(
+                                    @if(Auth::user()->role->name === 'Admin' )
+                                        <a href="{{ route('users.edit', ['language' => app()->getLocale(), 'user' => $record->id ]) }}"
+                                           class="btn btn-secondary"> {{ __('Edit') }} </a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                                onclick=" event.preventDefault(); confirmDelete(
                                                '{{ __('Confirm Delete') }} ',
                                                 '{{ __('Are You Sure?') }} ',
                                                 '{{ __('Yes') }}' ,
                                                 '{{ __('Cancel') }}' ,
                                                   this ); "
-                                                    class=" btn btn-danger">
-                                                {{ __('Delete') }} </button>
-                                    @endif
+                                                class=" btn btn-danger">
+                                            {{ __('Delete') }} </button>
+                                @endif
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

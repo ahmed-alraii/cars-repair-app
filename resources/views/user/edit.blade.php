@@ -1,9 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 
 @section('content')
 
     <div class="container">
-        <a href="{{ route('users.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
+        <a href="{{ route('users.index' , app()->getLocale()) }}"
+           class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
             {{ __('Back') }}
         </a>
     </div>
@@ -16,7 +17,8 @@
 
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.update' , ['language' =>  app()->getLocale() , 'user' => $record->id]) }}">
+                        <form method="POST"
+                              action="{{ route('users.update' , ['language' =>  app()->getLocale() , 'user' => $record->id]) }}">
                             @csrf
                             @method('PUT')
 
@@ -28,7 +30,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ $record->name }}"  autocomplete="name" autofocus>
+                                           value="{{ $record->name }}" autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +47,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ $record->email }}"  autocomplete="email">
+                                           value="{{ $record->email }}" autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -61,7 +63,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                           value="{{ $record->phone }}"  autocomplete="name" autofocus>
+                                           value="{{ $record->phone }}" autocomplete="name" autofocus>
 
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -78,7 +80,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
-                                           value="{{ $record->password }}"  autocomplete="new-password">
+                                           value="{{ $record->password }}" autocomplete="new-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">

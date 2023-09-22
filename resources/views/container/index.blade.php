@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Containers'))
 @section('content')
 
@@ -16,8 +16,9 @@
                 <div class="form-group  mb-3">
 
                     <form
-                            id="search-form-text" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
-                            method="get">
+                        id="search-form-text"
+                        action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
+                        method="get">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
                                 <input class="mdc-text-field__input" id="search-text" name="search">
@@ -32,8 +33,8 @@
 
             <div class="col-md-3">
                 <form
-                        id="search-form-number" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
-                        method="get">
+                    id="search-form-number" action="{{ route('containers.index', ['language' => app()->getLocale()]) }}"
+                    method="get">
 
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                         <div class="mdc-text-field">

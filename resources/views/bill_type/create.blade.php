@@ -1,9 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Add') . ' ' . __('Bill Type'))
 @section('content')
 
     <div class="container">
-        <a href="{{ route('bill_types.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
+        <a href="{{ route('bill_types.index' , app()->getLocale()) }}"
+           class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
             {{ __('Back') }}
         </a>
     </div>
@@ -26,7 +27,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name_ar') is-invalid @enderror" name="name_ar"
-                                           value="{{ old('name_ar') }}"  autocomplete="name_ar" autofocus>
+                                           value="{{ old('name_ar') }}" autocomplete="name_ar" autofocus>
 
                                     @error('name_ar')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +44,7 @@
                                 <div class="col-md-6">
                                     <input id="name_en" type="text"
                                            class="form-control @error('name_en') is-invalid @enderror" name="name_en"
-                                           value="{{ old('name_en') }}"  autocomplete="name_en" autofocus>
+                                           value="{{ old('name_en') }}" autocomplete="name_en" autofocus>
 
                                     @error('name_en')
                                     <span class="invalid-feedback" role="alert">

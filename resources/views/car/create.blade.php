@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Add') . ' ' .__('Car'))
 @section('content')
 
@@ -6,7 +6,8 @@
 
         <h2 class="text-center mt-3">{{ __('Add') }} {{ __('Car') }} </h2>
 
-        <a href="{{ route('_cars.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
+        <a href="{{ route('_cars.index' , app()->getLocale()) }}"
+           class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
             {{ __('Back') }}
         </a>
 
@@ -14,7 +15,7 @@
             <div class="row">
 
             </div>
-            <form method="POST" action="{{route('_cars.store' , app()->getLocale())}}" >
+            <form method="POST" action="{{route('_cars.store' , app()->getLocale())}}">
                 @csrf
 
                 <div class=" row justify-content-center mb-3">
@@ -39,7 +40,7 @@
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
-                                <input  class="mdc-text-field__input" id="text-field-hero-input" name="color"
+                                <input class="mdc-text-field__input" id="text-field-hero-input" name="color"
                                        value="{{old('color')}}">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
@@ -106,7 +107,8 @@
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
-                                <input  type="number" class="mdc-text-field__input" id="text-field-hero-input" name="model"
+                                <input type="number" class="mdc-text-field__input" id="text-field-hero-input"
+                                       name="model"
                                        value="{{old('model')}}">
                                 <div class="mdc-line-ripple"></div>
                                 <label for="text-field-hero-input"
@@ -117,7 +119,6 @@
                             @error('model')  {{$message}}   @enderror
                         </div>
                     </div>
-
 
 
                 </div>
@@ -145,9 +146,10 @@
                             <div class="mdc-text-field">
                                 <select class="form-control custom-select text-center" name="container_id">
                                     <option value="">{{__('Select Container')}}</option>
-                                  @foreach($containers as $container)
-                                      <option value="{{$container->id}}">{{$container->id}} - {{$container->container_name}} - {{$container->container_number}}</option>
-                                 @endforeach
+                                    @foreach($containers as $container)
+                                        <option value="{{$container->id}}">{{$container->id}}
+                                            - {{$container->container_name}} - {{$container->container_number}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -175,12 +177,12 @@
 
                 </div>
 
-                    <div class="form-group text-center mt-3">
-                        <input type="submit" value="{{ __('Add') }} " class="mdc-button mdc-button--raised ">
-                    </div>
-                </form>
+                <div class="form-group text-center mt-3">
+                    <input type="submit" value="{{ __('Add') }} " class="mdc-button mdc-button--raised ">
+                </div>
+            </form>
 
-            </div>
         </div>
+    </div>
 
-    @endsection
+@endsection

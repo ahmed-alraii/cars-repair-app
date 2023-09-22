@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Edit')  . ' ' . __('Car')   )
 @section('content')
 
@@ -165,7 +165,6 @@
                             @error('container_id')  {{$message}}   @enderror
                         </div>
                     </div>
-
 
 
                     <div class="col-md-4 ">

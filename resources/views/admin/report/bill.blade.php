@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Bills Report'))
 @section('content')
 
@@ -7,7 +7,7 @@
         <div class="container">
             @if(\Illuminate\Support\Facades\Session::has('inValidSearch'))
                 <div
-                    class="alert alert-danger text-center"> {{__( \Illuminate\Support\Facades\Session::get('inValidSearch'))}} </div>
+                        class="alert alert-danger text-center"> {{__( \Illuminate\Support\Facades\Session::get('inValidSearch'))}} </div>
             @endif
         </div>
 

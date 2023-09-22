@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Add') . ' ' .__('Container'))
 @section('content')
 
@@ -164,7 +164,7 @@
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
-                                <input  class="mdc-text-field__input"
+                                <input class="mdc-text-field__input"
                                        id="text-field-hero-input" name="quality_number"
                                        value="{{old('quality_number')}}">
                                 <div class="mdc-line-ripple"></div>

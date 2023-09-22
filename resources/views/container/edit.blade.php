@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Edit Container')  )
 @section('content')
 
@@ -8,7 +8,8 @@
 
 
         <div class="row col-1">
-            <a href="{{ route('containers.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-5">
+            <a href="{{ route('containers.index' , app()->getLocale()) }}"
+               class="mdc-button mdc-button--success text-white btn-sm mb-5">
                 {{ __('Back') }}
             </a>
         </div>
@@ -92,7 +93,6 @@
                 </div>
 
 
-
                 <div class="col-md-4 ">
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                         <div class="mdc-text-field">
@@ -132,6 +132,5 @@
             </div>
         </form>
     </div>
-
 
 @endsection

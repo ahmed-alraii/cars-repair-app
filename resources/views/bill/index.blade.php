@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Bills'))
 @section('content')
 
@@ -21,8 +21,6 @@
         @endif
 
 
-
-
         <div class="row  justify-content-center">
 
             <div class="col-md-6">
@@ -31,7 +29,7 @@
                     <form
                             id="search-form-text"
                             @if(request()->has('car_id'))
-                            action="{{ route('bills.index', ['language' => app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
+                                action="{{ route('bills.index', ['language' => app()->getLocale() , 'car_id' => request()->query('car_id') ]) }}"
 
                             @else
                                 action="{{ route('bills.index', ['language' => app()->getLocale()]) }}"

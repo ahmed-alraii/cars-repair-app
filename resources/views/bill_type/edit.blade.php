@@ -1,9 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Edit') . ' ' . __('Bill Type'))
 @section('content')
 
     <div class="container">
-        <a href="{{ route('bill_types.index' , app()->getLocale()) }}" class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
+        <a href="{{ route('bill_types.index' , app()->getLocale()) }}"
+           class="mdc-button mdc-button--success text-white btn-sm mb-4 ">
             {{ __('Back') }}
         </a>
     </div>
@@ -16,7 +17,8 @@
 
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('bill_types.update' , ['language' =>  app()->getLocale() , 'bill_type' => $record->id]) }}">
+                        <form method="POST"
+                              action="{{ route('bill_types.update' , ['language' =>  app()->getLocale() , 'bill_type' => $record->id]) }}">
                             @csrf
                             @method('PUT')
 

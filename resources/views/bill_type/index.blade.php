@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Bill Types'))
 @section('content')
 
@@ -32,8 +32,8 @@
 
                     @foreach ($records as $record)
                         <form
-                            action="{{ route('bill_types.destroy' , ['language' =>  app()->getLocale() , 'bill_type' => $record->id] ) }}"
-                            method="post">
+                                action="{{ route('bill_types.destroy' , ['language' =>  app()->getLocale() , 'bill_type' => $record->id] ) }}"
+                                method="post">
                             <input type="hidden" name="id" value="{{ $record->id }}">
                             <tr class="text-center">
                                 <td class="text-center">{{ $record->name_ar }}</td>

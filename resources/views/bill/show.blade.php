@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('title' , __('Bookings'))
 @section('content')
 
@@ -16,30 +16,29 @@
             <div class=" text-center">
 
 
+                <h2 class="text-center mb-2"> {{ __('Bill Details') }} </h2>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{__('Id')}}</th>
+                        <th>{{__('Bill Type')}}</th>
+                        <th>{{__('Price')}}</th>
+                        <th>{{__('Company Name')}}</th>
+                        <th>{{__('Company Phone')}}</th>
+                        <th>{{__('Notes')}}</th>
+                        <th>{{__('Created At')}}</th>
+                    </tr>
 
-                    <h2 class="text-center mb-2"> {{ __('Bill Details') }} </h2>
-                    <table class="table table-bordered table-striped">
-                        <tr>
-                            <th>{{__('Id')}}</th>
-                            <th>{{__('Bill Type')}}</th>
-                            <th>{{__('Price')}}</th>
-                            <th>{{__('Company Name')}}</th>
-                            <th>{{__('Company Phone')}}</th>
-                            <th>{{__('Notes')}}</th>
-                            <th>{{__('Created At')}}</th>
-                        </tr>
+                    <tr>
+                        <td class="text-center">  {{$record->id}} </td>
+                        <td class="text-center">  {{ app()->getLocale() === 'ar' ?  $record->billType->name_ar : $record->billType->name_en}} </td>
+                        <td class="text-center">  {{$record->price}} </td>
+                        <td class="text-center">  {{$record->company_name}} </td>
+                        <td class="text-center">  {{$record->company_phone}} </td>
+                        <td class="text-center">  {{$record->notes}} </td>
+                        <td class="text-center">  {{$record->created_at}} </td>
+                    </tr>
 
-                        <tr>
-                            <td class="text-center">  {{$record->id}} </td>
-                            <td class="text-center">  {{ app()->getLocale() === 'ar' ?  $record->billType->name_ar : $record->billType->name_en}} </td>
-                            <td class="text-center">  {{$record->price}} </td>
-                            <td class="text-center">  {{$record->company_name}} </td>
-                            <td class="text-center">  {{$record->company_phone}} </td>
-                            <td class="text-center">  {{$record->notes}} </td>
-                            <td class="text-center">  {{$record->created_at}} </td>
-                        </tr>
-
-                    </table>
+                </table>
 
 
                 <h2 class="text-center mb-2 mt-5"> {{ __('Car Details')  }} </h2>
