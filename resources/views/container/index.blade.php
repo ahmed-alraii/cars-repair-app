@@ -60,6 +60,7 @@
                         <th> {{ __('Container Name') }} </th>
                         <th> {{ __('Container Number') }} </th>
                         <th> {{ __('Bill Number') }} </th>
+                        <th> {{ __('Lot Number') }} </th>
                         <th> {{ __('Arrival Date') }} </th>
                         <th> {{ __('Notes') }} </th>
                         <th>{{ __('Action') }} </th>
@@ -75,6 +76,7 @@
                             <td>{{ $record->container_name }}</td>
                             <td>{{ $record->container_number }}</td>
                             <td>{{ $record->bill_number }}</td>
+                            <td>{{ $record->lot_number }}</td>
                             <td>{{ $record->arrival_date }}</td>
                             <td>{{ $record->notes }}</td>
                             <td>

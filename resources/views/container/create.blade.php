@@ -73,6 +73,22 @@
 
 
                 <div class=" row justify-content-center mb-3">
+
+                    <div class="col-md-4 ">
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                            <div class="mdc-text-field">
+                                <input class="mdc-text-field__input" id="lot_number" name="lot_number"
+                                       value="{{old('lot_number')}}">
+                                <div class="mdc-line-ripple"></div>
+                                <label for="text-field-hero-input"
+                                       class="mdc-floating-label">{{__('Lot Number')}}</label>
+                            </div>
+                        </div>
+                        <div class="text-danger text-center">
+                            @error('lot_number')  {{$message}}   @enderror
+                        </div>
+                    </div>
+
                     <div class="col-md-4 ">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                             <div class="mdc-text-field">
@@ -249,24 +265,6 @@
                             @error('car_notes')  {{$message}}   @enderror
                         </div>
                     </div>
-
-                    {{--                    <div class="col-md-4 ">--}}
-                    {{--                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">--}}
-                    {{--                            <div class="mdc-text-field">--}}
-
-                    {{--                                <select class="form-control custom-select text-center" name="restaurant_id">--}}
-                    {{--                                    <option value="">{{__('Select Container')}}</option>--}}
-                    {{--                                  @foreach($restaurants as $restaurant)--}}
-                    {{--                                      <option value="{{$restaurant->id}}">{{$restaurant->name}}</option>--}}
-                    {{--                                 @endforeach--}}
-                    {{--                                </select>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="text-danger text-center">--}}
-                    {{--                            @error('country_name_ar')  {{$message}}   @enderror--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
 
                 </div>
 

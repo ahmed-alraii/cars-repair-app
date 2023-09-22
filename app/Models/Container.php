@@ -14,6 +14,7 @@ class Container extends Model
         'container_name' ,
         'container_number' ,
         'bill_number' ,
+        'lot_number',
         'arrival_date' ,
         'notes'
     ];
