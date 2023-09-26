@@ -30,11 +30,12 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/bill_report', [ReportController::class, 'generateBillReport'])->name('generate_bill_report')->middleware(['auth']);
     Route::get('/bill_export', [ReportController::class, 'billExport'])->name('bill_export')->middleware(['auth']);
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    });
+//    Route::middleware('auth')->group(function () {
+//        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//    });
+
     require __DIR__ . '/auth.php';
 });
 
