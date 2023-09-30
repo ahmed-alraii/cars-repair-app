@@ -34,9 +34,6 @@
 
 <!-- plugins:js -->
 <script src="{{asset('admin/vendor/vendors/js/vendor.bundle.base.js')}}"></script>
-
-<script src={{ asset('build/assets/app-5149f3f7.js') }}></script>
-
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <script src="{{asset('admin/vendor/vendors/chartjs/Chart.min.js')}}"></script>
