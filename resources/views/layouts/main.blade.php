@@ -38,8 +38,6 @@
     <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
 
 
-
-
     <link rel="stylesheet" href={{ asset('admin/vendor/css/myStyle.css') }}>
 
 </head>
