@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-        {{--  @if(app()->getLocale() == 'ar') dir="rtl" @endif--}}
+    {{--  @if(app()->getLocale() == 'ar') dir="rtl" @endif--}}
 >
 <head>
     <meta charset="UTF-8">
@@ -245,7 +245,7 @@
                     </button>
                 </div>
                 <div
-                        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
+                    class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
                     <div class="menu-button-container menu-profile d-none d-md-block">
                         <button class="mdc-button mdc-menu-button">
                 <span class="d-flex align-items-center">
@@ -258,7 +258,7 @@
                                         <i class="mdi mdi-account-edit-outline text-primary"></i>
                                     </div>
                                     <div
-                                            class="item-content d-flex align-items-start flex-column justify-content-center">
+                                        class="item-content d-flex align-items-start flex-column justify-content-center">
                                         <h6 class="item-subject font-weight-normal">Edit profile</h6>
                                     </div>
                                 </li>
@@ -267,7 +267,7 @@
                                         <i class="mdi mdi-settings-outline text-primary"></i>
                                     </div>
                                     <div
-                                            class="item-content d-flex align-items-start flex-column justify-content-center">
+                                        class="item-content d-flex align-items-start flex-column justify-content-center">
                                         <h6 class="item-subject font-weight-normal">Logout</h6>
                                     </div>
                                 </li>
@@ -397,7 +397,7 @@
                            href="{{ route(Route::CurrentRouteName(), $params_values) }} "
                            class="nav-link language dropdown-toggle ml-2">
                             <img src={{ asset('admin/vendor/images/flags/GB.png') }} alt="English"><span
-                                    class="d-none d-sm-inline-block mr-2 ml-2">English</span></a>
+                                class="d-none d-sm-inline-block mr-2 ml-2">English</span></a>
 
                     @else
 
@@ -405,7 +405,7 @@
                            href="{{ route(Route::CurrentRouteName(), $params_values) }} "
                            class="nav-link language dropdown-toggle mr-2">
                             <img src={{ asset('admin/vendor/images/flags/OM.png') }} alt="Arabic"><span
-                                    class="d-none d-sm-inline-block ml-2 mr-2">عربي</span></a>
+                                class="d-none d-sm-inline-block ml-2 mr-2">عربي</span></a>
 
                     @endif
 
@@ -417,7 +417,7 @@
                         </button>
                         <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST"
                               class="d-none">
-                              @csrf
+                            @csrf
                         </form>
                     </div>
                 </div>
