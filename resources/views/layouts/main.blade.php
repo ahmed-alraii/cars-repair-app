@@ -35,8 +35,9 @@
     <link href="{{ asset('admin/vendor/css/dataTable.scroller.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
+{{--  @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
 
+      @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href={{ asset('admin/vendor/css/myStyle.css') }}>
 
@@ -106,19 +107,6 @@
                                 <h5 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h5>
                             @else
                                 <h6 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h6>
-                            @endif
-                        </a>
-                    </div>
-
-
-                    <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('cars_clients.index' , app()->getLocale())}}">
-                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
-                               aria-hidden="true">add</i>
-                            @if(app()->getLocale() === 'ar')
-                                <h5 class="mt-3 mr-2"> {{__('Client Cars')}}  </h5>
-                            @else
-                                <h6 class="mt-3 mr-2"> {{__('Client Cars')}}  </h6>
                             @endif
                         </a>
                     </div>
@@ -479,8 +467,6 @@
 </div>
 <!-- plugins:js -->
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>--}}
-
-<script src={{ asset('build/assets/app-5149f3f7.js') }}></script>
 
 <script src="{{asset('admin/vendor/vendors/js/vendor.bundle.base.js')}}"></script>
 {{--    select2 --}}
