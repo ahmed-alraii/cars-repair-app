@@ -114,7 +114,20 @@
                     </div>
 
 
-                    @if(Auth::user()->role->name === 'Admin')
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('cars_clients.index' , app()->getLocale())}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                               aria-hidden="true">add</i>
+                            @if(app()->getLocale() === 'ar')
+                                <h5 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h5>
+                            @else
+                                <h6 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h6>
+                            @endif
+                        </a>
+                    </div>
+
+
+                @if(Auth::user()->role->name === 'Admin')
 
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">
