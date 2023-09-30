@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ClientCarController;
 use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
@@ -25,7 +26,7 @@ Route::group(['prefix' => '{language}' ,'middleware' => 'auth'], function () {
 
     Route::resource('/users', UserController::class);
     Route::resource('/_cars', CarController::class);
-    Route::resource('/client_cars', CarController::class);
+    Route::resource('/cars_clients', ClientCarController::class);
     Route::resource('/containers', ContainerController::class);
     Route::resource('/bills', BillController::class);
     Route::resource('/bill_types', BillTypeController::class);

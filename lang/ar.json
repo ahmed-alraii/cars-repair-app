@@ -212,5 +212,14 @@
   "Arabic Name": "الاسم العربي",
   "English Name": "الاسم الانجليزي",
   "Car Code": "كود السيارة",
-    "Lot Number": "رقم اللوت"
+  "Lot Number": "رقم اللوت",
+  "Client Cars": "سيارات الزبائن",
+   "Client Name": "اسم الزبون",
+   "Client Phone": "هاتف الزبون",
+   "Client Car": "سيارة زبون",
+   "Show Date": "تاريخ العرض",
+   "Sell Price": "سعر العرض",
+   "Sell Date": "تاريخ البيغ",
+    "Client Car Details": "تفاصيل سيارة الزبون"
+
 }
