@@ -19,7 +19,6 @@
     <link rel="shortcut icon" href="{{asset('admin/vendor/images/favicon.png')}}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
 
@@ -36,6 +35,9 @@
 
 <!-- plugins:js -->
 <script src="{{asset('admin/vendor/vendors/js/vendor.bundle.base.js')}}"></script>
+
+<script src={{ asset('build/assets/app-5149f3f7.js') }}></script>
+
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <script src="{{asset('admin/vendor/vendors/chartjs/Chart.min.js')}}"></script>
