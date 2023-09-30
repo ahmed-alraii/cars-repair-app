@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
 
+
     <link rel="stylesheet" href={{ asset('admin/vendor/css/myStyle.css') }}>
 
 </head>
@@ -478,8 +479,6 @@
 </div>
 <!-- plugins:js -->
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>--}}
-
-<script src={{ asset('build/assets/app-5149f3f7.js') }}></script>
 
 <script src="{{asset('admin/vendor/vendors/js/vendor.bundle.base.js')}}"></script>
 {{--    select2 --}}
