@@ -29,7 +29,7 @@
 
 <div class="page-wrapper mdc-toolbar-fixed-adjust">
     <main class="content-wrapper">
-          @yield('content')
+        @yield('content')
     </main>
 </div>
 
