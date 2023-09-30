@@ -35,8 +35,8 @@
     <link href="{{ asset('admin/vendor/css/dataTable.scroller.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
 
 
