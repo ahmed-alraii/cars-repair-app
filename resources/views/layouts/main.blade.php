@@ -467,8 +467,6 @@
 <!-- plugins:js -->
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>--}}
 
-<script src={{ asset('build/assets/app-5149f3f7.js') }}></script>
-
 <script src="{{asset('admin/vendor/vendors/js/vendor.bundle.base.js')}}"></script>
 {{--    select2 --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
