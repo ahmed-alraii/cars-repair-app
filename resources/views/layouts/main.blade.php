@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
 
-    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href={{ asset('build/assets/app-e5178921.css') }}>
 
 
 
