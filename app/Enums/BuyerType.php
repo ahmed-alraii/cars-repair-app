@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum BuyerType
+enum BuyerType: string
 {
-    case Shop;
 
-    case Client;
+    case Shop = 'Shop';
+    case Client = 'Client';
 }

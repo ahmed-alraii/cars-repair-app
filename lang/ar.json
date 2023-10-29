@@ -220,6 +220,16 @@
    "Show Date": "تاريخ العرض",
    "Sell Price": "سعر العرض",
    "Sell Date": "تاريخ البيغ",
-    "Client Car Details": "تفاصيل سيارة الزبون"
+    "Client Car Details": "تفاصيل سيارة الزبون",
+    "Buy Cars": "شراء سيارات",
+    "Buy Car": "شراء سيارة",
+    "Buy Date": "تاريخ الشراء",
+    "Buyer Type": "نوع المشتري",
+    "Advance price": "المبلغ المقدم",
+    "Shipping Date": "تاريخ الشحن",
+    "Shipping Price": "قيمة الشحن",
+    "Select Buyer Type": "اختر المشترى",
+    "Shop": "المحل",
+    "Client": "زبون"
 
 }

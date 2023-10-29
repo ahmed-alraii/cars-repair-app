@@ -42,6 +42,8 @@
 
 
     <link rel="stylesheet" href={{ asset('admin/vendor/css/myStyle.css') }}>
+    @livewireStyles
+
 
 </head>
 <body>
@@ -122,6 +124,19 @@
                                 <h5 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h5>
                             @else
                                 <h6 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h6>
+                            @endif
+                        </a>
+                    </div>
+
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('buy_cars.index' , app()->getLocale())}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                               aria-hidden="true">add</i>
+                            @if(app()->getLocale() === 'ar')
+                                <h5 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h5>
+                            @else
+                                <h6 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h6>
                             @endif
                         </a>
                     </div>
@@ -503,6 +518,7 @@
 <script src={{ asset('admin/vendor/js/myScript.js') }}></script>
 
 @yield('scripts')
+@livewireScripts
 
 </body>
 </html>
