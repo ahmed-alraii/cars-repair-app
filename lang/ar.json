@@ -230,6 +230,12 @@
     "Shipping Price": "قيمة الشحن",
     "Select Buyer Type": "اختر المشترى",
     "Shop": "المحل",
-    "Client": "زبون"
+    "Client": "زبون",
+    "OutSide": "في الخارج",
+    "Shipping": "في الشحن",
+    "Arrived": "تم الوصول",
+    "Stored": "تم التخزين",
+    "Select Status": "اختر الحالة",
+    "Buy Car Details": "تفاصيل شراء سيارة"
 
 }

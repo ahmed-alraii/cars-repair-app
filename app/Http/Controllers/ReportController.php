@@ -35,6 +35,8 @@ class ReportController extends Controller
         }
 
 
+        $this->setRecordsSessions( $this->records );
+
         return view('admin.report.bill')
             ->with(['records' => $this->records , 'totalPrice' => $this->totalPrice]);
     }

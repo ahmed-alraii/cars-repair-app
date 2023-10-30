@@ -110,10 +110,10 @@
                                     method="post">
                                 <input type="hidden" name="id" value="{{ $record->id }}">
 
-                                <a href="{{ route('bills.show', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => request()->query('car_id')]) }}"
+                                <a href="{{ route('bills.show', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => $record->car_id]) }}"
                                    class="btn btn-primary"> {{ __('Show') }} </a>
                                 @if(Auth::user()->role->name === 'Admin' )
-                                    <a href="{{ route('bills.edit', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => request()->query('car_id')]) }}"
+                                    <a href="{{ route('bills.edit', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => $record->car_id]) }}"
                                        class="btn btn-secondary"> {{ __('Edit') }} </a>
                                     @csrf
                                     @method('DELETE')

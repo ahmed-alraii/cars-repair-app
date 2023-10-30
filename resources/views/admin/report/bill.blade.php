@@ -83,6 +83,7 @@
                         <tbody>
                         @php $count = 1; @endphp
                         @foreach ($records as $record)
+
                             <tr class="text-center">
                                 <td class="text-center">{{ $count++ }}</td>
                                 <td class="text-center">{{ $record->id }}</td>
@@ -94,6 +95,28 @@
                                 <td class="text-center">{{ $record->company_phone }}</td>
                                 <td class="text-center">{{ $record->price }}</td>
                                 <td class="text-center">{{ $record->notes }}</td>
+                                <td>
+                                    <form
+                                        action="{{ route('bills.destroy', ['language' => app()->getLocale(), 'bill' => $record->id]) }}"
+                                        method="post">
+                                        <input type="hidden" name="id" value="{{ $record->id }}">
+
+                                        <a href="{{ route('bills.edit', ['language' => app()->getLocale(), 'bill' => $record->id , 'car_id' => $record->car_id]) }}"
+                                           class="btn btn-secondary"> {{ __('Edit') }} </a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                                onclick=" event.preventDefault(); confirmDelete(
+                                               '{{ __('Confirm Delete') }} ',
+                                                '{{ __('Are You Sure?') }} ',
+                                                '{{ __('Yes') }}' ,
+                                                '{{ __('Cancel') }}' ,
+                                                  this ); "
+                                                class=" btn btn-danger">
+                                            {{ __('Delete') }}
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         <tr class="text-center bg-purple  ">

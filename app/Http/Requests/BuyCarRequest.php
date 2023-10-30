@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\BuyerType;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -31,8 +32,8 @@ class BuyCarRequest extends FormRequest
             'car_vin' => 'required|unique:cars,vin,' . $this->id,
             'notes' => '',
             'car_code' => 'min:4|max:4',
-            'client_name' => '',
-            'client_phone' => '',
+            'client_name' => $this->buyer_type == BuyerType::Client->value ? 'required' : '',
+            'client_phone' => $this->buyer_type == BuyerType::Client->value ? 'required' : '',
             'lot_number' => 'required',
             'total_price' => 'required',
             'shipping_price' => '',
@@ -43,4 +44,6 @@ class BuyCarRequest extends FormRequest
             'status' => ''
         ];
     }
+
+
 }

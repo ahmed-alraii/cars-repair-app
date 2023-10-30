@@ -1,47 +1,40 @@
 <?php
 
 namespace App\Http\Livewire;
-
-use App\Models\Category;
-use App\Models\Item;
-use App\Models\ItemType;
-use App\Models\Specification;
-use App\Models\TradeMark;
+use App\Enums\BuyerType;
+use App\Http\Requests\BuyCarRequest;
+use App\Models\BuyCar;
 use Illuminate\Support\Collection;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 
 class BuyCarEdit extends Component
 {
-    public Collection $itemTypes;
-    public Collection $specifications;
-    public Collection $categories;
-    public Collection $tradeMarks;
 
-    public Collection $specificationSizes;
-    public int $itemTypeId;
-    public int $categoryId;
+    public BuyCar $record ;
+    public string $selectedBuyerType;
 
-    public Item $record;
 
-    public function __construct($id = null)
+    public function mount()
     {
-
-        $this->categories = Category::all();
-        $this->tradeMarks = TradeMark::all();
-
-        parent::__construct($id);
+        $this->selectedBuyerType = $this->record->buyer_type;
 
     }
 
     public function render()
     {
-        $this->itemTypeId = $this->record->item_type_id;
-        $this->categoryId = $this->record->itemType->category_id;
-        $this->itemTypes = ItemType::where('category_id', $this->categoryId)->get();
-        $this->specifications = Specification::where('item_type_id', $this->itemTypeId)->get();
-        return view('livewire.item-edit');
+        if(old('buyer_type') != null) {
+            $this->selectedBuyerType = old('buyer_type');
+        }
+
+        return view('livewire.buy_car_edit');
     }
 
+    public function selectedBuyerType($value): void
+    {
+        $this->selectedBuyerType = $value;
+
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Common\Common;
+use App\Enums\BuyCarStatus;
 use App\Enums\BuyerType;
 use App\Http\Requests\BuyCarRequest;
 use App\Models\BuyCar;
@@ -48,7 +49,7 @@ class BuyCarController extends Controller
     public function store(BuyCarRequest $request)
     {
         $data = $request->all();
-
+        $data['status'] = BuyCarStatus::OutSide->value;
         $res = BuyCar::create($data);
         $this->sendFlashMessage($res , 'Buy-Car' , 'Added');
         return redirect()->route('buy_cars.index', app()->getLocale());
@@ -77,6 +78,9 @@ class BuyCarController extends Controller
 
         return redirect()->route('buy_cars.index', app()->getLocale());
     }
+
+
+
 
     public function destroy(Request $request)
     {

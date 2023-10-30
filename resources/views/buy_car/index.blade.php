@@ -58,11 +58,11 @@
             <table id="table" class="table">
                 <thead>
                 <tr>
-                    <th> {{ __('Id') }} </th>
                     <th> {{ __('Lot Number') }} </th>
                     <th> {{ __('Total Price') }} </th>
                     <th> {{ __('Buy Date') }} </th>
                     <th> {{ __('Vin') }} </th>
+                    <th> {{ __('Code') }} </th>
                     <th> {{ __('Status') }} </th>
                     <th> {{ __('Buyer Type') }} </th>
                     <th>{{ __('Action') }} </th>
@@ -74,12 +74,12 @@
                 @foreach ($records as $record)
 
                     <tr>
-                        <td>{{ $record->id  }}</td>
                         <td>{{ $record->lot_number }}</td>
                         <td>{{ $record->total_price }}</td>
                         <td>{{ $record->buy_date }}</td>
-                        <td>{{ $record->vin }}</td>
-                        <td>{{ $record->status }}</td>
+                        <td>{{ $record->car_vin }}</td>
+                        <td>{{ $record->car_code  }}</td>
+                        <td>{{ __($record->status) }}</td>
                         <td>{{ __($record->buyer_type) }}</td>
 
                         <td>
@@ -129,7 +129,7 @@
 
         {{ $records->links() }}
     </div>
-    </div>
+
 @endsection
 <script src="{{ asset('admin/vendor/js/jquery.js') }}"></script>
 <script>

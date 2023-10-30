@@ -2,11 +2,11 @@
 @section('title' , __('Bookings'))
 @section('content')
 
-    <div class="container mt-0">
+    <div class="container-fluid mt-0">
 
-        <h2 class="text-center mb-5">{{ __('Show') }} {{ __('Client Car Details') }} </h2>
+        <h2 class="text-center mb-5">{{ __('Show') }} {{ __('Buy Car Details') }} </h2>
 
-        <a href="{{ route('cars_clients.index' , app()->getLocale()) }}"
+        <a href="{{ route('buy_cars.index' , app()->getLocale()) }}"
            class="mdc-button mdc-button--success text-white btn-sm mb-2 ">
             {{ __('Back') }}
         </a>
@@ -16,16 +16,17 @@
             <div class=" text-center">
 
 
-                <h2 class="text-center mb-2 mt-5"> {{ __('Client Car Details') }}  </h2>
+                <h2 class="text-center mb-2 mt-5"> {{ __('Buy Car Details') }}  </h2>
 
                 <table class="table table-bordered table-striped table-responsive">
                     <tr>
+                        <th>{{__('Lot Number')}}</th>
                         <th>{{__('Client Name')}}</th>
                         <th>{{__('Client Phone')}}</th>
                         <th>{{__('Car Name')}}</th>
                         <th>{{__('Show Date')}}</th>
-                        <th>{{__('Sell Price')}}</th>
-                        <th>{{__('Sell Date')}}</th>
+                        <th>{{__('Total Price')}}</th>
+                        <th>{{__('Buy Date')}}</th>
                         <th>{{__('Model')}}</th>
                         <th>{{__('Color')}}</th>
                         <th>{{__('Quality Number')}}</th>
@@ -37,12 +38,13 @@
                     </tr>
 
                     <tr>
+                        <td class="text-center">  {{$record->lot_number}} </td>
                         <td class="text-center">  {{$record->client_name}} </td>
                         <td class="text-center">  {{$record->client_phone}} </td>
                         <td class="text-center">  {{$record->car_name}} </td>
                         <td class="text-center">  {{$record->show_date}} </td>
-                        <td class="text-center">  {{$record->sell_price}} </td>
-                        <td class="text-center">  {{$record->sell_date}} </td>
+                        <td class="text-center">  {{$record->total_price}} </td>
+                        <td class="text-center">  {{$record->buy_date}} </td>
                         <td class="text-center">  {{$record->car_model}} </td>
                         <td class="text-center">  {{$record->car_color}} </td>
                         <td class="text-center">  {{$record->car_quality_number}} </td>
