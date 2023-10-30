@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="{{asset('admin/vendor/images/favicon.png')}}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('build/assets/app-e5178921.css') }}">
 
     <link rel="stylesheet" href="{{asset('admin/vendor/css/myStyle.css')}}">
 </head>
