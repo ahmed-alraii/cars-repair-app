@@ -38,9 +38,6 @@
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-
-
-
     <link rel="stylesheet" href={{ asset('admin/vendor/css/myStyle.css') }}>
     @livewireStyles
 
@@ -74,21 +71,6 @@
 
                         </a>
                     </div>
-                    @if(Auth::user()->role->name === 'Employee')
-                        {{--                        <div class="mdc-list-item mdc-drawer-item">--}}
-                        {{--                            <a class="mdc-drawer-link" href="{{route('orders.index' , app()->getLocale())}}">--}}
-                        {{--                                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
-                        {{--                                   aria-hidden="true">add</i>--}}
-                        {{--                                @if(app()->getLocale() === 'ar')--}}
-                        {{--                                    <h5--}}
-                        {{--                                        class="mt-3 mr-2"> {{__('Orders')}}  </h5>--}}
-                        {{--                                @else--}}
-                        {{--                                    <h6 class="mt-3 mr-2"> {{__('Orders')}}  </h6>--}}
-                        {{--                                @endif--}}
-                        {{--                            </a>--}}
-                        {{--                        </div>--}}
-                    @endif
-
 
                     <div class="mdc-list-item mdc-drawer-item">
                         <a class="mdc-drawer-link" href="{{route('containers.index' , app()->getLocale())}}">
@@ -103,46 +85,104 @@
                     </div>
 
 
-                    <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('_cars.index' , app()->getLocale())}}">
-                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
-                               aria-hidden="true">add</i>
-                            @if(app()->getLocale() === 'ar')
-                                <h5 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h5>
-                            @else
-                                <h6 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h6>
-                            @endif
-                        </a>
-                    </div>
+                    {{--                    <div class="mdc-list-item mdc-drawer-item">--}}
+                    {{--                        <a class="mdc-drawer-link" href="{{route('_cars.index' , app()->getLocale())}}">--}}
+                    {{--                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
+                    {{--                               aria-hidden="true">add</i>--}}
+                    {{--                            @if(app()->getLocale() === 'ar')--}}
+                    {{--                                <h5 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h5>--}}
+                    {{--                            @else--}}
+                    {{--                                <h6 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h6>--}}
+                    {{--                            @endif--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
+
+
+                    {{--                    <div class="mdc-list-item mdc-drawer-item">--}}
+                    {{--                        <a class="mdc-drawer-link" href="{{route('cars_clients.index' , app()->getLocale())}}">--}}
+                    {{--                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
+                    {{--                               aria-hidden="true">add</i>--}}
+                    {{--                            @if(app()->getLocale() === 'ar')--}}
+                    {{--                                <h5 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h5>--}}
+                    {{--                            @else--}}
+                    {{--                                <h6 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h6>--}}
+                    {{--                            @endif--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
+
+
+                    {{--                    <div class="mdc-list-item mdc-drawer-item">--}}
+                    {{--                        <a class="mdc-drawer-link" href="{{route('buy_cars.index' , app()->getLocale())}}">--}}
+                    {{--                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"--}}
+                    {{--                               aria-hidden="true">add</i>--}}
+                    {{--                            @if(app()->getLocale() === 'ar')--}}
+                    {{--                                <h5 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h5>--}}
+                    {{--                            @else--}}
+                    {{--                                <h6 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h6>--}}
+                    {{--                            @endif--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
 
 
                     <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('cars_clients.index' , app()->getLocale())}}">
+                        <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                           data-target="ui-sub-menu-car">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
-                               aria-hidden="true">add</i>
+                               aria-hidden="true">star</i>
                             @if(app()->getLocale() === 'ar')
-                                <h5 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h5>
+                                <h5 class="mt-3 mr-2"> {{__('Cars')}}  </h5>
                             @else
-                                <h6 class="mt-3 mr-2"> {{__('Clients Cars')}}  </h6>
+                                <h6 class="mt-3 mr-2"> {{__('Cars')}}  </h6>
                             @endif
+
+                            <i class="mdc-drawer-arrow material-icons mr-2">chevron_right</i>
                         </a>
+                        <div class="mdc-expansion-panel" id="ui-sub-menu-car">
+                            <nav class="mdc-list mdc-drawer-submenu">
+                                <div class="mdc-list-item mdc-drawer-item">
+                                    <a class="mdc-drawer-link"
+                                       href="{{route('_cars.index' , app()->getLocale())}}">
+                                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                                           aria-hidden="true">book</i>
+                                        @if(app()->getLocale() === 'ar')
+                                            <h5 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h5>
+                                        @else
+                                            <h6 class="mt-3 mr-2"> {{__('Shop Cars')}}  </h6>
+                                        @endif
+                                    </a>
+                                </div>
+
+                                <div class="mdc-list-item mdc-drawer-item">
+                                    <a class="mdc-drawer-link"
+                                       href="{{route('cars_clients.index' , app()->getLocale())}}">
+                                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                                           aria-hidden="true">book</i>
+                                        @if(app()->getLocale() === 'ar')
+                                            <h5 class="mt-3 mr-2"> {{__('Client Cars')}}  </h5>
+                                        @else
+                                            <h6 class="mt-3 mr-2"> {{__('Client Cars')}}  </h6>
+                                        @endif
+                                    </a>
+                                </div>
+
+                                <div class="mdc-list-item mdc-drawer-item">
+                                    <a class="mdc-drawer-link"
+                                       href="{{route('buy_cars.index' , app()->getLocale())}}">
+                                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
+                                           aria-hidden="true">book</i>
+                                        @if(app()->getLocale() === 'ar')
+                                            <h5 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h5>
+                                        @else
+                                            <h6 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h6>
+                                        @endif
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
                     </div>
 
 
-                    <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('buy_cars.index' , app()->getLocale())}}">
-                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon mt-2"
-                               aria-hidden="true">add</i>
-                            @if(app()->getLocale() === 'ar')
-                                <h5 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h5>
-                            @else
-                                <h6 class="mt-3 mr-2"> {{__('Buy Cars')}}  </h6>
-                            @endif
-                        </a>
-                    </div>
-
-
-                @if(Auth::user()->role->name === 'Admin')
+                    @if(Auth::user()->role->name === 'Admin')
 
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{route('bills.index' , app()->getLocale())}}">
@@ -232,31 +272,6 @@
                                         </a>
                                     </div>
 
-                                    {{--                                    <div class="mdc-list-item mdc-drawer-item">--}}
-                                    {{--                                        <a class="mdc-drawer-link"--}}
-                                    {{--                                           href="{{ route('_restaurants.index' , app()->getLocale()) }}">--}}
-
-                                    {{--                                            @if(app()->getLocale() === 'ar')--}}
-                                    {{--                                                <h5--}}
-                                    {{--                                                    class="mt-3 mr-2"> {{__('Restaurants')}}  </h5>--}}
-                                    {{--                                            @else--}}
-                                    {{--                                                <h6 class="mt-3 mr-2"> {{__('Restaurants')}}  </h6>--}}
-                                    {{--                                            @endif--}}
-                                    {{--                                        </a>--}}
-                                    {{--                                    </div>--}}
-
-
-                                    {{--                                    <div class="mdc-list-item mdc-drawer-item">--}}
-                                    {{--                                        <a class="mdc-drawer-link" href="{{route('menu_items.index' , app()->getLocale())}}">--}}
-                                    {{--                                            @if(app()->getLocale() === 'ar')--}}
-                                    {{--                                                <h5 class="mt-3 mr-2"> {{__('Menu Items')}}  </h5>--}}
-                                    {{--                                            @else--}}
-                                    {{--                                                <h6 class="mt-3 mr-2"> {{__('Menu Items')}}  </h6>--}}
-                                    {{--                                            @endif--}}
-
-                                    {{--                                        </a>--}}
-                                    {{--                                    </div>--}}
-
                                 </nav>
                             </div>
                         </div>
@@ -278,32 +293,8 @@
                 <div
                     class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
                     <div class="menu-button-container menu-profile d-none d-md-block">
-                        <button class="mdc-button mdc-menu-button">
-                <span class="d-flex align-items-center">
-                </span>
+                        <button class="mdc-button mdc-menu-button"><span class="d-flex align-items-center"></span>
                         </button>
-                        <div class="mdc-menu mdc-menu-surface" tabindex="-1">
-                            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                                <li class="mdc-list-item" role="menuitem">
-                                    <div class="item-thumbnail item-thumbnail-icon-only">
-                                        <i class="mdi mdi-account-edit-outline text-primary"></i>
-                                    </div>
-                                    <div
-                                        class="item-content d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="item-subject font-weight-normal">Edit profile</h6>
-                                    </div>
-                                </li>
-                                <li class="mdc-list-item" role="menuitem">
-                                    <div class="item-thumbnail item-thumbnail-icon-only">
-                                        <i class="mdi mdi-settings-outline text-primary"></i>
-                                    </div>
-                                    <div
-                                        class="item-content d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="item-subject font-weight-normal">Logout</h6>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
 
                     {{--                    @if(Auth::user()->role->name === 'Employee')--}}
